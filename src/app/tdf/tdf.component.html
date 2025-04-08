@@ -1,0 +1,50 @@
+<form [formGroup]="form">
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      formControlName="email"
+      required
+    />
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="password">Password: </label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      formControlName="password"
+      required
+    />
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="gender">Gender: </label>
+    <input
+      type="text"
+      id="gender"
+      name="gender"
+      formControlName="gender"
+      required
+    />
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="age">Age: </label>
+    <input
+      type="number"
+      id="age"
+      name="age"
+      formControlName="age"
+      required
+      min="1"
+      max="120"
+    />
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{{ form.value | json }}
