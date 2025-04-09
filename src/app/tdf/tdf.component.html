@@ -8,8 +8,15 @@
       formControlName="email"
       required
     />
+    <div
+      *ngIf="email.touched && email.invalid && email.errors"
+      class="text-danger"
+    >
+      <div *ngIf="email.errors['required']">Email is required.</div>
+      <div *ngIf="email.errors['email']">Email is invalid.</div>
+    </div>
   </div>
-  <br>
+  <br />
   <div class="form-group">
     <label for="password">Password: </label>
     <input
@@ -19,8 +26,17 @@
       formControlName="password"
       required
     />
+    <div
+      *ngIf="password.touched && password.invalid && password.errors"
+      class="text-danger"
+    >
+      <div *ngIf="password.errors['required']">Password is required.</div>
+      <div *ngIf="password.errors['minlength']">
+        Please type a minimum of 5 characters.
+      </div>
+    </div>
   </div>
-  <br>
+  <br />
   <div class="form-group">
     <label for="gender">Gender: </label>
     <input
@@ -30,8 +46,14 @@
       formControlName="gender"
       required
     />
+    <div
+      *ngIf="gender.touched && gender.invalid && gender.errors"
+      class="text-danger"
+    >
+      <div *ngIf="gender.errors['required']">Gender is required.</div>
+    </div>
   </div>
-  <br>
+  <br />
   <div class="form-group">
     <label for="age">Age: </label>
     <input
@@ -43,8 +65,16 @@
       min="1"
       max="120"
     />
+    <div *ngIf="age.touched && age.invalid && age.errors" class="text-danger">
+      <div *ngIf="age.errors['required']">Age is required.</div>
+    </div>
   </div>
-  <br>
+  <br />
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<br /><br />
+<h3>Form Values</h3>
 {{ form.value | json }}
+<br />
+<h3>Form Errors</h3>
+{{ form.errors | json }}
